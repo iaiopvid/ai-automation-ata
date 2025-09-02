@@ -19,7 +19,7 @@ export async function POST(request) {
     // Comentar trecho abaixo, apenas para teste
     // :::: INICIO TEST ::::
     const fileId = "ID00001";
-    const filePath = path.join("./src/tmp", "meet-transcription.txt"); // /tmp no Linux
+    const filePath = path.join("./src/app/services", "meet-transcription.txt"); // /tmp no Linux
     const fileContent = await fs.readFile(filePath, "utf-8"); // == request.fileContent
     // return NextResponse.json({ content: fileContent });
     // :::: FIM TEST ::::
