@@ -14,14 +14,14 @@ const NOTION_PAGE_ID = process.env.NOTION_PAGE_ID;
 export async function POST(request) {
   try {
     // Descomentar linha abaixo para uso no App Script
-    // const { fileId, fileName, content: fileContent } = await request.json();
+    const { fileId, fileName, content: fileContent } = await request.json();
 
     // Comentar trecho abaixo, apenas para teste
     // :::: INICIO TEST ::::
-    const fileId = "ID00001";
+    // const fileId = "ID00001";
     // const filePath = path.join("/public", "meet-transcription.txt"); // /tmp no Linux
-    const filePath = path.join(process.cwd(), "public", "meet-transcription.txt");
-    const fileContent = await fs.readFile(filePath, "utf-8"); // == request.fileContent
+    // const filePath = path.join(process.cwd(), "public", "meet-transcription.txt");
+    // const fileContent = await fs.readFile(filePath, "utf-8"); // == request.fileContent
     // return NextResponse.json({ content: fileContent });
     // :::: FIM TEST ::::
 
