@@ -1,0 +1,36 @@
+{
+  "name": "transcript-automation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@google/genai": "^1.11.0",
+    "@notionhq/client": "^4.0.1",
+    "@slack/web-api": "^7.9.3",
+    "@tryfabric/martian": "^1.2.4",
+    "dotenv": "^17.2.1",
+    "googleapis": "^152.0.0",
+    "jest": "^30.0.5",
+    "next": "15.3.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "turndown": "^7.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-jest": "^30.0.5",
+    "typescript": "^5"
+  }
+}

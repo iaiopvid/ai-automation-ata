@@ -1,0 +1,11 @@
+[00:00:05] Maria: Bom dia a todos! Hoje vamos discutir o projeto Árvore Verde. O objetivo é finalizar a proposta.
+[00:00:15] João: Olá, Maria. Sobre a fase 1, temos um problema com o fornecedor X. Ele não entregou o material a tempo.
+[00:00:30] Pedro: Eu falei com o fornecedor Y, eles podem nos atender, mas é 15% mais caro.
+[00:00:45] Maria: Precisamos resolver isso hoje. Qual a urgência, João?
+[00:00:55] João: Se não tivermos o material até sexta, o projeto atrasa uma semana.
+[00:01:05] Maria: Ok, decisão: vamos com o fornecedor Y. Pedro, por favor, coordene a compra urgente. Prazo: hoje mesmo.
+[00:01:20] Pedro: Certo, farei isso.
+[00:01:25] João: E a reunião de alinhamento com a equipe de marketing?
+[00:01:35] Maria: Ficou para quarta-feira, às 14h. João, você pode preparar os slides?
+[00:01:45] João: Posso sim.
+[00:01:50] Maria: Ótimo. Próximos passos definidos. Obrigado a todos.
