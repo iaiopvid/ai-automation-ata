@@ -4,7 +4,8 @@ import path from "path";
 
 import { NextResponse } from 'next/server';
 import { generateMeetingSummary} from '@/app/services/iaService';
-import { UploadFileToDrive } from '@/app/services/storeService';
+import { uploadFile } from '@/app/services/storeService';
+// import { UploadFileToDrive } from '@/app/services/storeService';
 import { createNotionPage } from '@/app/services/notionService';
 import { postToSlack, sendFile } from '@/app/services/slackService';
 
@@ -28,20 +29,21 @@ export async function POST(request) {
     // 1. Generate meeting summary
     const summary = await generateMeetingSummary(fileContent);
     if (!summary) throw new Error('Resumo não pôde ser gerado.');
+
+
+    // 2.1. Convert summary into a text file (Buffer)
+    // const fileBuffer = Buffer.from(summary, "utf-8");
+    // const fileName = `ResumoReuniao_${Date.now()}.txt`;
+    // if (!fileBuffer) throw new Error('A conversão do resumo falhou.');
     
     // 2. Upload file to Google Drive // Descomentar as 2 linhas abaixo
-    // const driveFile = await UploadFileToDrive(ataName, summary, "text/plain");
-    // if (!driveFile) throw new Error('Erro ao subir o arquivo para o Google Drive.');
+    const driveFile = await uploadFile(ataName, summary);
+    // const driveFile = await UploadFileToDrive(ataName, fileBuffer, "text/plain");
+    if (!driveFile) throw new Error('Erro ao subir o arquivo para o Google Drive.');
 
     // 3. Create Notion Page
     const notionPage = await createNotionPage(NOTION_PAGE_ID, ataName, summary);
     if (!notionPage) throw new Error('Erro ao gerar a página do Notion.');
-
-
-    // 2.1. Convert summary into a text file (Buffer)
-    const fileBuffer = Buffer.from(summary, "utf-8");
-    // const fileName = `ResumoReuniao_${Date.now()}.txt`;
-    if (!fileBuffer) throw new Error('A conversão do resumo falhou.');
 
     // 4. Send file to Slack
     const slackChannel = "#toda-a-empresa-novo-workspace";
@@ -49,7 +51,7 @@ export async function POST(request) {
 
     return NextResponse.json({
       message: "Integração concluída com sucesso!",
-      // driveFileId: driveFile.id, // Descomentar
+      driveFileId: driveFile.id,
       notionPageId: notionPage.id,
       slackId: resSlack.ts,
     });
